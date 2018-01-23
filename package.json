@@ -1,0 +1,11 @@
+{
+  "name": "sunmi-card-reader",
+  "version": "0.0.1",
+  "cordova": {
+    "id": "sunmi-card-reader",
+    "platforms": [
+      "android"
+    ]
+  },
+  "description": "bell stu plugin"
+}

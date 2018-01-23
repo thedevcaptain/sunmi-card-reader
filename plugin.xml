@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="sunmi-card-reader"
+    version="0.0.1">
+    <name>Sunmi Card Reader</name>
+    <description></description>
+    <license>MIT</license>
+    <keywords></keywords><!-- 
+    <repo>https://github.com/driftyco/cordova-plugin-template.git</repo>
+    <issue>https://github.com/driftyco/cordova-plugin-template/issues</issue>-->
+
+    <!-- android -->
+    <platform name="android">
+      <js-module src="www/plugin.js" name="plugin">
+        <runs/>
+        <!-- This is the window variable name you want, like window.MyCordovaPlugin -->
+        <clobbers target="SunmiCardReader" />
+      </js-module>
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="SunmiCardReader">
+          <param name="android-package" value="it.piratafrancis.SunmiCardReader" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+	  <framework src="src/android/sunmicardreader.gradle" custom="true" type="gradleReference" />
+	   <resource-file src="libs/rel.aar" target="libs/rel.aar" />
+      <source-file src="src/android/it/piratafrancis/SunmiCardReader.java" target-dir="src/it/piratafrancis/" />
+    </platform>
+
+ 
+</plugin>
