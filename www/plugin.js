@@ -2,13 +2,26 @@
 var exec = require('cordova/exec');
 
 var PLUGIN_NAME = 'SunmiCardReader';
-
 var SunmiCardReader = {
-  echo: function(minutes, cb) {
-    exec(cb, null, PLUGIN_NAME, 'echo', [minutes]);
+	startReadCard: function(cardTypes) {
+		return new Promise(function(resolve,reject){
+			exec(resolve, reject, PLUGIN_NAME, 'startReadCard', cardTypes);
+		});
   },
-  paffo: function(minutes, cb) {
-    exec(cb, null, PLUGIN_NAME, 'echo', [minutes]);
+  authMifare: function(blockKey,keyType,blockToRead) {
+		return new Promise(function(resolve,reject){
+			exec(resolve, reject, PLUGIN_NAME, 'authMifare', [blockKey,keyType,blockToRead]);
+	});
+  },
+  readBlockMifare: function(blockToRead) {
+		return new Promise(function(resolve,reject){
+			exec(resolve, reject, PLUGIN_NAME, 'readBlockMifare', [blockToRead]);
+	});
+  },
+  writeBlockMifare: function(blockToWrite,stringToWrite) {
+		return new Promise(function(resolve,reject){
+			exec(resolve, reject, PLUGIN_NAME, 'writeBlockMifare', [blockToWrite,stringToWrite]);
+	});
   }
 };
 
