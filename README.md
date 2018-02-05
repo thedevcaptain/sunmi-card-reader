@@ -55,7 +55,7 @@ Write Hex into a card block
 - blockToRead: Integer
 - stringToWrite: String
 ```javascript
-window.SunmiCardReader.readBlockMifare(5)
+window.SunmiCardReader.writeBlockMifare(5,"12111100000000000000000000000000")
 .then(function(payload){
 	console.log(payload);
 }).catch(function (error) {
