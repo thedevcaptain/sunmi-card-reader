@@ -6,15 +6,14 @@
     <name>Sunmi Card Reader</name>
     <description></description>
     <license>MIT</license>
-    <keywords></keywords><!-- 
-    <repo>https://github.com/driftyco/cordova-plugin-template.git</repo>
-    <issue>https://github.com/driftyco/cordova-plugin-template/issues</issue>-->
+    <keywords></keywords>
+    <repo>https://github.com/PirataFrancis/sunmi-card-reader.git</repo>
+    <issue>https://github.com/PirataFrancis/sunmi-card-reader/issues</issue>
 
     <!-- android -->
     <platform name="android">
       <js-module src="www/plugin.js" name="plugin">
         <runs/>
-        <!-- This is the window variable name you want, like window.MyCordovaPlugin -->
         <clobbers target="SunmiCardReader" />
       </js-module>
       <config-file target="res/xml/config.xml" parent="/*">
