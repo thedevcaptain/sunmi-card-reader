@@ -1,6 +1,6 @@
 {
   "name": "sunmi-card-reader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "cordova": {
     "id": "sunmi-card-reader",
     "platforms": [

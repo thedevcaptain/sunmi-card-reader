@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="sunmi-card-reader"
-    version="0.0.1">
+    version="0.0.2">
     <name>Sunmi Card Reader</name>
     <description></description>
     <license>MIT</license>

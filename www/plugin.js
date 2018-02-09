@@ -22,6 +22,11 @@ var SunmiCardReader = {
 		return new Promise(function(resolve,reject){
 			exec(resolve, reject, PLUGIN_NAME, 'writeBlockMifare', [blockToWrite,stringToWrite]);
 	});
+  },
+  setPinStatus: function(pinToEdit,statusResolved) {
+		return new Promise(function(resolve,reject){
+			exec(resolve, reject, PLUGIN_NAME, 'setPinStatus', [pinToEdit,statusResolved]);
+	});
   }
 };
 

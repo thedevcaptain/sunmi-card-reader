@@ -193,16 +193,44 @@ public class SunmiCardReader extends CordovaPlugin {
 				e.printStackTrace();
 				callbackContext.error(e.getMessage()+"Json");
 			}
+		}else if(action.equals("setPinStatus")){
+			//ARGS
+			/*
+			[
+				pinToEdit,
+				statusResolved
+			]
+			*/
+			try{
+
+				int res = opt.ledStatusOnDevice(args.getInt(0),args.getInt(1));
+				if(res == 0){
+					OptRes result = new OptRes();
+					result.setRes(res);
+					callbackContext.success(result.toJSONObject());
+				}else{
+					OptRes result = new OptRes();
+					result.setRes(res);
+					callbackContext.error(result.toJSONObject());
+				}
+				opt.cancelCheckCard();
+			}catch(RemoteException e){
+				callbackContext.error(e.getMessage()+"Remote");
+			}catch (JSONException e) {
+				e.printStackTrace();
+				callbackContext.error(e.getMessage()+"Json");
+			}
 		}
 		return false;  // Returning false results in a "MethodNotFound" error.
 	}
-	private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
+	private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
 	private String getReadableBlock(byte[] data){
 		String res = bytesToHex(data);
 		return res.substring(4,36);
 	}
+
 	private String bytesToHex(byte[] bytes) {
         char[] hexChars = new char[bytes.length * 2];
         for ( int j = 0; j < bytes.length; j++ ) {
@@ -212,6 +240,7 @@ public class SunmiCardReader extends CordovaPlugin {
         }
         return new String(hexChars);
     }
+
 	public byte[] hexStringToByteArray(String s) {
         int len = s.length();
         byte[] data = new byte[len / 2];
@@ -221,7 +250,6 @@ public class SunmiCardReader extends CordovaPlugin {
         }
         return data;
     }
-	
 	
 	class LocalString  implements LocalSerializable{
 
@@ -272,6 +300,7 @@ public class SunmiCardReader extends CordovaPlugin {
         }
 
     }
+
     interface LocalSerializable{
         public Object toJSONObject() throws JSONException;
     }
