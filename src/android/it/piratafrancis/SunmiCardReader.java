@@ -203,7 +203,7 @@ public class SunmiCardReader extends CordovaPlugin {
 			*/
 			try{
 
-				int res = opt.ledStatusOnDevice(args.getInt(0),args.getInt(1));
+				int res = bOpt.ledStatusOnDevice(args.getInt(0),args.getInt(1));
 				if(res == 0){
 					OptRes result = new OptRes();
 					result.setRes(res);
@@ -213,7 +213,6 @@ public class SunmiCardReader extends CordovaPlugin {
 					result.setRes(res);
 					callbackContext.error(result.toJSONObject());
 				}
-				opt.cancelCheckCard();
 			}catch(RemoteException e){
 				callbackContext.error(e.getMessage()+"Remote");
 			}catch (JSONException e) {
