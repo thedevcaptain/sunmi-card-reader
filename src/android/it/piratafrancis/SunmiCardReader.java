@@ -30,8 +30,8 @@ import sunmi.paylib.SunmiPayKernel;
 
 public class SunmiCardReader extends CordovaPlugin {
 
-    ReadCardOpt opt;
-	BasicOpt bOpt;
+    private static ReadCardOpt opt;
+	private static BasicOpt bOpt;
 
 	private static final String TAG = "SunmiCardReader";
 
@@ -57,6 +57,9 @@ public class SunmiCardReader extends CordovaPlugin {
 	}
 
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+		if(opt == null || bOpt == null){
+			initItAll();
+		}
 		if(action.equals("startReadCard")){ 
 			try{
 				int o = 0;
