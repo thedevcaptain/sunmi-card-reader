@@ -228,7 +228,6 @@ public class SunmiCardReader extends CordovaPlugin {
 				opt.cancelCheckCard();
 
 				OptRes result = new OptRes();
-				result.setValue(true);
 
 				callbackContext.success(result.toJSONObject());
 			}catch(RemoteException e){
