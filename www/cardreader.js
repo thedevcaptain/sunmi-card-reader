@@ -27,6 +27,11 @@ var SunmiCardReader = {
 		return new Promise(function(resolve,reject){
 			exec(resolve, reject, PLUGIN_NAME, 'setPinStatus', [pinToEdit,statusResolved]);
 	});
+  },
+  cancelCheckCard: function() {
+		return new Promise(function(resolve,reject){
+			exec(resolve, reject, PLUGIN_NAME, 'cancelCheckCard', []);
+	});
   }
 };
 
